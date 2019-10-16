@@ -1,0 +1,158 @@
+.portfolio
+  padding: 0
+
+.portfolio-tabs
+  &__top
+    padding: 80px 0 60px
+    background: #000 url(../images/general/portfolio-bg.jpg) no-repeat center / cover
+    color: #fff
+    +sm-block
+      padding: 40px 0
+    .section-title
+      margin-bottom: 50px
+      color: #fff
+      +sm-block
+        margin-bottom: 30px
+  &__item
+    padding: 40px 0
+    +lg-block
+      padding: 80px 0
+    +sm-block
+      padding: 40px 0
+
+.portfolio-tabs-list
+  margin: 0
+  padding: 0
+  list-style: none
+  display: flex
+  align-items: center
+  +lg-block
+    overflow-x: auto
+    +smooth-scroll
+  &__item
+    margin-right: 85px
+    +xl-block
+      margin-right: 55px
+    +lg-block
+      margin-right: 30px
+      white-space: nowrap
+      flex-shrink: 0
+    &:last-child
+      margin-right: 0
+    &.active
+      .portfolio-tabs-list
+        &__link
+          color: #fff
+          &::after
+            transform: scale(1, 1)
+  &__link
+    position: relative
+    display: block
+    padding-bottom: 10px
+    font-size: 2rem
+    font-weight: 600
+    color: rgba(#fff, 0.8)
+    +lg-block
+      font-size: 1.8rem
+    &:hover
+      color: #fff
+    &::after
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      height: 3px
+      background-color: $accent
+      transform-origin: 0 50%
+      transform: scale(0, 1)
+      +trans(all, 0.5s)
+
+.portfolio-slider
+  position: relative
+  &__wrap
+    +row-flex
+  &__content
+    +col
+    +size(5)
+    +size-xl(6)
+    +size-lg(12)
+    padding-top: 45px
+    +lg-block
+      margin-bottom: 50px
+      padding-top: 0
+  &__right
+    +col
+    +size(7)
+    +size-xl(6)
+    +size-lg(12)
+  &__title
+    margin-bottom: 80px
+    font-size: 3.2rem
+    +xl-block
+      margin-bottom: 40px
+      font-size: 2.8rem
+    +lg-block
+      padding-right: 250px
+    +sm-block
+      padding-right: 0
+      font-size: 2.4rem
+      text-align: center
+  &__target
+    margin-bottom: 15px
+    font-size: 2.4rem
+    +xl-block
+      font-size: 2.2rem
+    +sm-block
+      font-size: 2rem
+    a
+      font-weight: 600
+      color: #000
+      text-decoration: underline
+      &:hover, &:focus
+        text-decoration: none
+    b, strong
+      font-weight: 600
+  &__descr
+    margin-top: 30px
+    margin-bottom: 80px
+    +lg-block
+      margin-bottom: 0
+    p
+      line-height: 1.5
+      b, strong
+        font-weight: 600
+  &__slider-controls
+    position: absolute
+    left: 0
+    bottom: 60px
+    z-index: 1
+    +xl-block
+      bottom: 0
+    +lg-block
+      bottom: auto
+      left: auto
+      top: 0
+      right: 0
+    +sm-block
+      position: static
+      right: auto
+      top: auto
+      margin-top: 20px
+      .slider-controls
+        &__pagination
+          width: 100%
+        &__btns
+          display: none
+
+.portfolio-example-slider
+  position: relative
+  +xl-block
+    padding-bottom: 60px
+  &__item
+    img
+      width: 100%
+  .slider-controls
+    position: absolute
+    bottom: 0
+    right: 0

@@ -1,0 +1,114 @@
+.chosen
+  z-index: 1
+  padding-bottom: 160px
+  background-color: #000
+  +md-block
+    padding-bottom: 80px
+  +sm-block
+    padding-bottom: 40px
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: -1
+    background-color: rgba(#000, 0.5)
+  .section-title
+    margin-bottom: 50px
+    color: #fff
+  &__video
+    @extend .hero__video
+  &__wrap
+    +row-flex
+  &__img
+    +size(6)
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    height: calc(100% + 40px)
+    +trans
+    +md-block
+      display: none
+    &[data-color="blue"]
+      background-color: $blue
+    &[data-color="teal"]
+      background-color:  $teal
+    &[data-color="yellow"]
+      background-color:  $yellow
+    &[data-color="pink"]
+      background-color:  $pink
+    &[data-color="purple"]
+      background-color:  $purple
+    &[data-color="lime"]
+      background-color:  $lime
+    &[data-color="dark-blue"]
+      background-color:  $dark-blue
+    &[data-color="green"]
+      background-color:  $green
+    &.active
+      opacity: 1
+    img
+      float: right
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: right center
+      mix-blend-mode: multiply
+  &__content
+    +col
+    +size(6)
+    +size-md(12)
+    +shift-left(6)
+    +shift-md-left(0)
+    padding-left: 65px
+    +md-block
+      padding-left: 0
+      text-align: center
+
+.chosen-list
+  margin: 0 0 90px
+  padding: 0
+  list-style: none
+  +xl-block
+    margin-bottom: 60px
+  &__item
+    margin-bottom: 45px
+    font-size: 2.4rem
+    font-weight: 700
+    color: #fff
+    cursor: pointer
+    +trans
+    +xl-block
+      margin-bottom: 25px
+    +to(1400px)
+      margin-bottom: 15px
+      font-size: 2rem
+    &:last-child
+      margin-bottom: 0
+    &[data-color="blue"]
+      &:hover
+        color: $blue
+    &[data-color="teal"]
+      &:hover
+        color: $teal
+    &[data-color="yellow"]
+      &:hover
+        color: $yellow
+    &[data-color="pink"]
+      &:hover
+        color: $pink
+    &[data-color="purple"]
+      &:hover
+        color: $purple
+    &[data-color="lime"]
+      &:hover
+        color: $lime
+    &[data-color="dark-blue"]
+      &:hover
+        color: $dark-blue
+    &[data-color="green"]
+      &:hover
+        color: $green

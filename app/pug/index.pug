@@ -1,0 +1,11 @@
+extends template/main
+
+block variables
+  - var title = 'Главная'
+  - var pageClass = ''
+
+block content
+  include pages/index/hero
+  include pages/index/about
+  include pages/index/portfolio
+  include pages/index/chosen

@@ -1,0 +1,174 @@
+.about
+  padding-bottom: 0
+  .section-title
+    font-weight: 800
+  &__left, &__right
+    +col
+  &__left
+    +size(6)
+    +size-md(12)
+  &__right
+    +size(6)
+    +size-md(12)
+    +md-block
+      margin-bottom: 40px
+      text-align: center
+    p
+      margin-bottom: 20px
+      font-size: 2rem
+      +lg-block
+        font-size: 1.8rem
+      &:last-child
+        margin-bottom: 0
+
+.about-list
+  display: flex
+  flex-wrap: wrap
+  margin-top: 80px
+  &__item
+    +u-size(4, 12, 0px)
+    position: relative
+    padding: 80px 2% 60px 2%
+    +md-block
+      +u-size(12, 12, 0px)
+    +sm-block
+      padding: 40px 15px 50px
+    &:hover
+      .about-list
+        &__full
+          opacity: 1
+          visibility: visible
+    &--pink
+      +md-block
+        background-color: $pink
+      .about-list
+        &__link
+          &::before
+            background-color: $pink
+        &__full
+          background-color: $pink
+    &--blue
+      +md-block
+        background-color: $blue
+      .about-list
+        &__link
+          &::before
+            background-color: $blue
+        &__full
+          background-color: $blue
+    &--green
+      +md-block
+        background-color: $accent
+      .about-list
+        &__link
+          &::before
+            background-color: $accent
+        &__full
+          background-color: $accent
+  &__wrap
+    display: flex
+    flex-direction: column
+    max-width: 440px
+    height: 100%
+    margin: 0 auto
+    +md-block
+      height: auto
+      & > .about-list__link
+        display: none
+  &__title
+    margin-bottom: 60px
+    +lg-block
+      margin-bottom: 30px
+  &__descr
+    margin-bottom: 60px
+    +lg-block
+      margin-bottom: 30px
+    p
+      margin-bottom: 15px
+      font-size: 2rem
+      +lg-block
+        font-size: 1.8rem
+      &:last-child
+        margin-bottom: 0
+  &__link
+    position: relative
+    z-index: 1
+    display: inline-block
+    align-self: flex-start
+    margin-top: auto
+    padding-left: 20px
+    padding-right: 20px
+    text-decoration: underline
+    font-size: 1.6rem
+    font-weight: 600
+    color: #000
+    &:hover
+      color: #000
+      text-decoration: none
+      &::before
+        width: 100%
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+      z-index: -1
+      width: 40px
+      height: 40px
+      border-radius: 12px
+      background-color: #ccc
+      +trans
+  &__full
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 1
+    padding: 80px 30px 60px
+    opacity: 0
+    visibility: hidden
+    color: #000
+    +trans
+    +md-block
+      position: static
+      top: auto
+      right: auto
+      bottom: auto
+      left: auto
+      opacity: 1
+      visibility: visible
+      padding: 0
+    &-wrap
+      display: flex
+      flex-direction: column
+      max-width: 440px
+      height: 100%
+      margin: 0 auto
+      padding-bottom: 10px
+      overflow-y: auto
+      +smooth-scroll
+      +md-block
+        overflow-y: visible
+      .about-list__link
+        margin-top: auto
+        text-decoration: none
+        &::before
+          background-color: #fff
+        &:hover
+          text-decoration: underline
+    &-item
+      margin-bottom: 50px
+      +lg-block
+        margin-bottom: 30px
+      &:last-child
+        margin-bottom: 0
+      &--team
+        p
+          font-size: 1.6rem
+      p
+        line-height: 1.3
+    &-title
+      margin-bottom: 15px
+      font-size: 2rem

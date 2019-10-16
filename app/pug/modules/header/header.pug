@@ -1,0 +1,51 @@
+header.header
+  .container
+    a(href="./").logo.header__logo
+      img(src="static/images/general/logo.png", alt="WWA")
+    p.header__cta Привлекаем клиентов для клиник и врачей
+
+    a(href="#").btn.btn--icon.consultation-modal_open.header__consultation
+      +icon('phone')
+      | Получить консультацию
+
+    .nav-wrap
+      span.nav-wrap__title Меню
+      button(type="button").nav-toggle
+        span.nav-toggle__line
+
+    nav.nav
+      button(type="button").nav__close Закрыть меню
+
+      ul.nav-list
+        li.nav-list__item
+          a(href="#").nav-list__link Продвижение
+        li.nav-list__item
+          a(href="#").nav-list__link Портфолио
+        li.nav-list__item
+          a(href="#").nav-list__link Нас выбирают
+        li.nav-list__item
+          a(href="#").nav-list__link Отзывы
+        li.nav-list__item
+          a(href="#").nav-list__link Предлагаемые Услуги
+        li.nav-list__item
+          a(href="#").nav-list__link Факты о нас
+        li.nav-list__item
+          a(href="#").nav-list__link Квиз
+        li.nav-list__item
+          a(href="#").nav-list__link Команда
+        li.nav-list__item
+          a(href="#").nav-list__link ЧаВо?
+
+      ul.social.nav__social
+        li.social__item
+          a(href="#", target="_blank").social__link
+            +icon('skype', 'social__icon')
+        li.social__item
+          a(href="#", target="_blank").social__link
+            +icon('telegram', 'social__icon')
+        li.social__item
+          a(href="#", target="_blank").social__link
+            +icon('viber', 'social__icon')
+        li.social__item
+          a(href="#", target="_blank").social__link
+            +icon('whatsapp', 'social__icon')

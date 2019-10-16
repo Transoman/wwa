@@ -1,0 +1,27 @@
+section.chosen
+  video(autoplay, muted, loop).chosen__video
+    source(src="static/images/content/depositphotos_246688052-stock-video-doctor-signs-documents-in-a.mp4")
+
+  .chosen__img
+    img(src="static/images/content/chosen-img.jpg", alt="")
+
+  .container
+    .chosen__wrap
+
+      .chosen__content
+        h2.section-title Нас выбирают
+
+        ul.chosen-list
+          li(data-color="blue").chosen-list__item Медицинские центры
+          li(data-color="teal").chosen-list__item Стоматологические клиники
+          li(data-color="yellow").chosen-list__item Пластические хирурги и клиники
+          li(data-color="pink").chosen-list__item Косметологические клиники
+          li(data-color="purple").chosen-list__item Гинекологии и репродуктологии
+          li(data-color="lime").chosen-list__item Диагностические центры
+          li(data-color="dark-blue").chosen-list__item Частные врачи
+          li(data-color="green").chosen-list__item Ветеринарные клиники
+
+        .chosen__btn
+          a(href="#").btn.btn--icon.consultation-modal_open
+            +icon('phone')
+            | Получить консультацию
