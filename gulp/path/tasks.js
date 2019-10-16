@@ -8,5 +8,6 @@ module.exports = [
     './gulp/tasks/styles',
     './gulp/tasks/svg',
     './gulp/tasks/video',
+    './gulp/tasks/files',
     './gulp/tasks/watch'
 ];

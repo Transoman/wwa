@@ -6,6 +6,7 @@ module.exports = function () {
             './app/static/images/content/**/*.{png,jpg,gif,svg}'], $.gulp.series('img:dev'));
         $.gulp.watch('./app/static/images/svg/*.svg', $.gulp.series('svg'));
         $.gulp.watch('./app/static/images/**/*.mp4', $.gulp.series('video'));
+        $.gulp.watch('./app/static/files/**/*.*', $.gulp.series('files'));
         $.gulp.watch('./app/static/js/**/*.js', $.gulp.series('js:dev'));
     });
 };

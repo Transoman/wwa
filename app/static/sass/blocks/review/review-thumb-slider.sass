@@ -1,0 +1,21 @@
+.review-thumb-slider
+  margin: 0 10px
+  +md-block
+    display: none
+  &__item
+    cursor: pointer
+    &.swiper-slide-thumb-active
+      .review-thumb-slider
+        &__inner
+          border-color: $accent
+      img
+        border-radius: 0
+    img
+      border-radius: 20px
+      +trans
+  &__inner
+    width: 100px
+    height: 100px
+    border: 10px solid transparent
+    border-radius: 30px
+    +trans

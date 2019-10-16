@@ -1,7 +1,9 @@
 global.jQuery = require('jquery');
 var svg4everybody = require('svg4everybody'),
 popup = require('jquery-popup-overlay'),
-Swiper = require('swiper');
+Swiper = require('swiper'),
+Simplebar = require('simplebar'),
+fancybox = require('@fancyapps/fancybox');
 
 jQuery(document).ready(function($) {
 
@@ -38,7 +40,20 @@ jQuery(document).ready(function($) {
       el: '.portfolio-slider__slider-controls .swiper-pagination',
       type: 'fraction',
       formatFractionCurrent: function(number) {
-        console.log(number);
+        if (number < 10) {
+          return '0' + number;
+        }
+        else {
+          return number;
+        }
+      },
+      formatFractionTotal: function(number) {
+        if (number < 10) {
+          return '0' + number;
+        }
+        else {
+          return number;
+        }
       }
     },
   });
@@ -48,6 +63,56 @@ jQuery(document).ready(function($) {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+  });
+
+  new Swiper('.review-slider', {
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'fraction',
+      formatFractionCurrent: function(number) {
+        if (number < 10) {
+          return '0' + number;
+        }
+        else {
+          return number;
+        }
+      },
+      formatFractionTotal: function(number) {
+        if (number < 10) {
+          return '0' + number;
+        }
+        else {
+          return number;
+        }
+      }
+    },
+    thumbs: {
+      swiper: {
+        el: '.review-thumb-slider',
+        spaceBetween: 40,
+        slidesPerView: 2,
+        slidesPerColumn: 2,
+        slidesPerColumnFill: 'row',
+        breakpoints: {
+          1260: {
+            slidesPerView: 3,
+            slidesPerColumn: 2,
+          },
+          1780: {
+            slidesPerView: 4,
+            slidesPerColumn: 2,
+          }
+        }
+      }
+    }
   });
 
   // Tabs

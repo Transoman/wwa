@@ -1,0 +1,34 @@
+.review
+  padding-bottom: 0
+  background: #000 url(../images/general/review-bg.jpg) no-repeat center / cover
+  color: #fff
+  .section-title
+    color: #fff
+  &__wrap
+    +row-flex
+    align-items: center
+  &__left
+    +col
+    width: calc(35.5% - 30px)
+    +md-block
+      width: calc(100% - 30px)
+  &__right
+    +col
+    width: calc(64.5% - 30px)
+    +md-block
+      width: calc(100% - 30px)
+  &__descr
+    margin-bottom: 60px
+    font-size: 2.4rem
+    font-weight: 700
+    +xl-block
+      font-size: 2.2rem
+    +md-block
+      font-size: 1.8rem
+      text-align: center
+    p
+      &:last-child
+        margin-bottom: 0
+
+@import 'review-thumb-slider'
+@import 'review-slider'

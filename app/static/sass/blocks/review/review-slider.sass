@@ -1,0 +1,92 @@
+.review-slider
+  position: relative
+  z-index: 1
+  padding: 20px 0 0 20px
+  &::before, &::after
+    content: ''
+    position: absolute
+    height: 100%
+  &::before
+    top: 10px
+    right: 10px
+    left: 10px
+    background-color: rgba(#fff, 0.6)
+  &::after
+    top: 0
+    right: 20px
+    left: 0
+    background-color: rgba(#fff, 0.3)
+  &__item
+    background-color: #fff
+  &__head
+    padding: 40px 80px 20px
+    background-color: $lighten-gray
+    +xl-block
+      padding: 40px 40px 20px
+    +sm-block
+      padding: 20px 15px
+    &-top
+      display: flex
+      align-items: baseline
+      padding-right: 230px
+      +xl-block
+        display: block
+      +xs-block
+        padding: 50px 0 0 0
+  &__name
+    margin: 0 15px 0 0
+    +xl-block
+      margin-right: 0
+    span
+      text-transform: uppercase
+  &__object
+    font-size: 1.4rem
+    color: #818181
+    text-transform: uppercase
+  &__service
+    margin-bottom: 40px
+    font-size: 2.4rem
+    color: #000
+    +sm-block
+      font-size: 2rem
+      margin-bottom: 20px
+    strong
+      font-weight: 600
+      text-transform: uppercase
+  &__letter
+    display: flex
+    align-items: center
+    text-decoration: underline
+    +xs-block
+      font-size: 1.4rem
+    svg
+      width: 31px
+      height: 31px
+      fill: $blue
+      margin-right: 20px
+      +xs-block
+        margin-right: 10px
+  &__content
+    padding: 20px 40px 40px 80px
+    +xl-block
+      padding-left: 40px
+    +sm-block
+      padding: 20px 15px
+    &-inner
+      max-height: 275px
+      padding-right: 75px
+      color: $main-color
+      +sm-block
+        padding-right: 25px
+      p
+        margin-bottom: 15px
+        &:last-child
+          margin-bottom: 0
+  .slider-controls
+    position: absolute
+    top: 50px
+    right: 40px
+    z-index: 1
+    +sm-block
+      top: 30px
+      right: 20px
