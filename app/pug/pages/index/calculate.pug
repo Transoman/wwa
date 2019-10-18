@@ -1,8 +1,8 @@
-section.s-calculate
+section.s-calculate#calculate
   .container
     h2.section-title Узнайте точную стоимость
 
-    form.steps-calculate
+    form(enctype="multipart/form-data").steps-calculate.form-ajax
 
       .steps-calculate__progress.progress
         .progress__step
@@ -87,14 +87,14 @@ section.s-calculate
           .steps-calculate-form__right
             .form-group
               label.form-file
-                input(type="file").form-file__input
+                input(type="file", name="file").form-file__input
                 +icon('paper-clip', 'form-file__icon')
                 span Добавить файл
             .form-group.form-group--btn
               button(type="submit").btn Начать проект
 
         label.check
-          input(type="checkbox", checked, required).check__input
+          input(type="checkbox", name="terms", checked, required).check__input
           span.check__box
           | Принимаю условия <a href="#">пользовательского соглашения</a> и <a href="#">политики конфиденциальности</a>
 

@@ -4,14 +4,31 @@
   left: 0
   right: 0
   z-index: 10
-  padding-top: 70px
+  padding: 70px 0 15px
+  +trans
   +xl-block
     padding-top: 30px
+  &.fixed
+    position: fixed
+    padding: 15px 0
+    animation: slideDown 0.4s linear
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      background-color: rgba($main-color, 0.6)
+      backdrop-filter: blur(25px)
   .container
     display: flex
     align-items: center
   &__logo
     margin-right: 40px
+    +xs-block
+      margin-right: 20px
   &__cta
     margin: 0
     color: #fff

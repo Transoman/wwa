@@ -1,0 +1,82 @@
+.faq
+  background: #000 url(../images/general/faq-bg.jpg) no-repeat center / cover
+  color: #fff
+  .section-title
+    margin-bottom: 60px
+    color: #fff
+    +sm-block
+      margin-bottom: 30px
+  &__wrap
+    +row-flex
+  &__left
+    +col
+    +size(6)
+    +size-lg(12)
+    padding-right: 25px
+    +xl-block
+      padding: 0
+  &__right
+    +col
+    +size(6)
+    +size-lg(12)
+    padding-left: 25px
+    +xl-block
+      padding: 0
+
+.faq-list
+  &__item
+    margin-bottom: 10px
+    background-color: $dark
+    border-radius: 16px
+    &.active
+      .faq-list
+        &__toggle
+          background-color: $accent
+          svg
+            fill: $dark
+            transform: rotate(180deg)
+  &__title
+    position: relative
+    margin: 0
+    padding: 20px 80px 20px 40px
+    font-size: 2.4rem
+    color: #fff
+    cursor: pointer
+    +sm-block
+      padding: 15px 80px 15px 20px
+      font-size: 2rem
+  &__toggle
+    position: absolute
+    top: 50%
+    right: 30px
+    transform: translateY(-50%)
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 40px
+    height: 40px
+    border: 1px solid $accent
+    border-radius: 50%
+    +trans
+    +sm-block
+      width: 30px
+      height: 30px
+      right: 20px
+    svg
+      width: 16px
+      height: 9px
+      fill: $accent
+      +trans
+      +sm-block
+        width: 12px
+        height: 7px
+  &__content
+    display: none
+    padding: 0 40px 30px
+    font-size: 2rem
+    +sm-block
+      padding: 0 20px 15px
+      font-size: 1.8rem
+    p
+      &:last-child
+        margin-bottom: 0

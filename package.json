@@ -55,8 +55,11 @@
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
     "bootstrap": "^4.3.1",
+    "imask": "^5.2.1",
     "jquery": "^3.4.1",
+    "jquery-bridget": "^2.0.1",
     "jquery-popup-overlay": "^2.1.1",
+    "jquery-validation": "^1.19.1",
     "simplebar": "^4.2.3",
     "svg4everybody": "^2.1.9",
     "swiper": "^5.0.4"

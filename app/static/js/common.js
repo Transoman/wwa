@@ -1,11 +1,16 @@
 global.jQuery = require('jquery');
 var svg4everybody = require('svg4everybody'),
-popup = require('jquery-popup-overlay'),
-Swiper = require('swiper'),
-Simplebar = require('simplebar'),
-fancybox = require('@fancyapps/fancybox');
+  popup = require('jquery-popup-overlay'),
+  Swiper = require('swiper'),
+  Simplebar = require('simplebar'),
+  fancybox = require('@fancyapps/fancybox'),
+  iMask = require('imask'),
+  jQueryBridget = require('jquery-bridget'),
+  validate = require('jquery-validation');
 
 jQuery(document).ready(function($) {
+
+  // jQueryBridget( 'validate', validate, $ );
 
   // Toggle nav menu
   $('.nav-toggle').on('click', function (e) {
@@ -25,10 +30,25 @@ jQuery(document).ready(function($) {
   // Modal
   $('.modal').popup({
     transition: 'all 0.3s',
+    scrolllock: true,
     onclose: function() {
       $(this).find('label.error').remove();
     }
   });
+
+  // Input mask
+  let inputMask = function() {
+    let phoneInputs = $('input[type="tel"]');
+    let maskOptions = {
+      mask: '+{7} (000) 000-0000'
+    };
+
+    if (phoneInputs) {
+      phoneInputs.each(function(i, el) {
+        IMask(el, maskOptions);
+      });
+    }
+  };
 
   new Swiper('.portfolio-slider', {
     simulateTouch: false,
@@ -252,11 +272,174 @@ jQuery(document).ready(function($) {
     }
   };
 
+  // Accordion
+  let accordion = function(item) {
+    let el = $(item);
+    let elTitle = el.find('h3');
+    let content = elTitle.next();
+
+    el.find('.active').find(content).slideDown(500);
+
+    elTitle.click(function() {
+      if ($(this).parent().hasClass('active')) {
+        $(this).parent().removeClass('active');
+        $(this).next().slideUp(500);
+      }
+      else {
+        $(this).parent().addClass('active');
+        content.not($(this).next()).slideUp(500);
+        elTitle.not($(this)).parent().removeClass('active');
+        $(this).next().slideDown(500);
+      }
+    });
+  };
+
+  // Smooths scroll
+  $('a[href*="#"]')
+  // Remove links that don't actually link to anything
+    .not('[href="#"]')
+    .not('[href="#0"]')
+    .click(function(event) {
+      // On-page links
+      if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+        &&
+        location.hostname == this.hostname
+      ) {
+        // Figure out element to scroll to
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        // Does a scroll target exist?
+        if (target.length) {
+          // Only prevent default if animation is actually gonna happen
+          event.preventDefault();
+
+          let offset = 0;
+
+          if ($(window).width() > 991) {
+            offset = 90;
+          }
+          else if ($(window).width() > 767) {
+            offset = 80;
+          }
+          else {
+            offset = 70;
+          }
+
+          $('.nav-toggle').removeClass('active');
+          $('.nav').removeClass('open');
+          $('html').removeClass('nav-open');
+
+          $('html, body').animate({
+            scrollTop: target.offset().top - offset
+          }, 1000);
+        }
+      }
+    });
+
+  // Fixed header
+  let fixedHeader = function(e) {
+    let header = $('.header');
+
+    if (e.scrollTop() > 150) {
+      header.addClass('fixed');
+    }
+    else {
+      header.removeClass('fixed');
+    }
+  };
+
+  // Validate form
+  let validateForm = function() {
+    jQuery.validator.addMethod("phoneno", function(phone_number, element) {
+      return this.optional(element) || phone_number.match(/\+[0-9]{1}\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}/);
+    }, "Введите Ваш телефон");
+
+    $('.form-ajax').each(function(i, el) {
+
+      $(el).validate({
+        rules: {
+          phone: {
+            phoneno: true
+          },
+          email: {
+            email: true
+          }
+        },
+        messages: {
+          name: 'Это поле обязательно к заполнению.',
+          phone: 'Это поле обязательно к заполнению.',
+          email: 'Это поле обязательно к заполнению.'
+        },
+        submitHandler: function(form) {
+          let data = new FormData($(form).get(0));
+          console.log(data);
+          return false;
+
+          // ajaxSend(form, data);
+        }
+      });
+
+      toggleSubmit( $(this) );
+
+      $(this).on( 'click', '.check', function() {
+        toggleSubmit( $(el) );
+      } );
+
+    });
+
+    function toggleSubmit(form) {
+      let button = form.find('button[type="submit"]');
+
+      if (form.find('.check').length) {
+        if (form.find('.check__input').is(':checked')) {
+          button.prop('disabled', false);
+        } else {
+          button.prop('disabled', true);
+        }
+      }
+    }
+
+    function ajaxSend(formName, data) {
+      jQuery.ajax({
+        type: "POST",
+        url: "sendmail.php",
+        data: data,
+        success: function() {
+          $(".modal").popup("hide");
+          $("#thanks").popup("show");
+          setTimeout(function() {
+            $(formName).trigger('reset');
+          }, 2000);
+        }
+      });
+    }
+  };
+
+  let inputSubject = $('#services-modal input[name="subject"]');
+  let oldVal =  inputSubject.val();
+  $('.services-modal_open').click(function() {
+    let title = $(this).data('title');
+
+    inputSubject.val(oldVal);
+
+    inputSubject.val(function(i, v) {
+      return v.replace('{service}', title);
+    }).val();
+  });
 
   tabs('.portfolio-tabs', '.portfolio-tabs-list', '.portfolio-tabs__item');
   tabs('.services-tabs', '.services-tabs-list', '.services-tabs__item');
   chosenHover();
   inputFile();
+  accordion('.faq-list');
+  fixedHeader($(this));
+  inputMask();
+  validateForm();
+
+  $(window).scroll(function() {
+    fixedHeader($(this));
+  });
 
   // SVG
   svg4everybody({});

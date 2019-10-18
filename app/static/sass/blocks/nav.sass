@@ -131,11 +131,15 @@
 .nav-wrap
   position: relative
   padding-right: 75px
+  +xs-block
+    padding-right: 0
   &__title
     text-transform: uppercase
     font-size: 14px
     font-weight: 700
     color: #fff
+    +xs-block
+      display: none
 
 .nav-toggle
   position: absolute

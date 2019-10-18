@@ -16,7 +16,9 @@
   position: relative
   margin-bottom: 40px
   +sm-block
-    margin-bottom: 20px
+    margin-bottom: 30px
+  &--term
+    margin-bottom: 0
 .form-label
   display: block
   margin: 0
@@ -44,6 +46,10 @@
     color: inherit
   &:focus
     outline: none
+  &.error
+    border-color: red
+  &.valid
+    border-color: green
 .form-file
   display: flex
   align-items: center
@@ -82,3 +88,10 @@
     vertical-align: middle
     text-overflow: ellipsis
     overflow: hidden
+
+label.error
+  position: absolute
+  top: calc(100% + 5px)
+  left: 20px
+  font-size: 1.2rem
+  color: red

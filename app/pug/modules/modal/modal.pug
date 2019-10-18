@@ -1,0 +1,58 @@
+#consultation-modal.modal
+  button.consultation-modal_close.modal__close
+    | Close
+    span.modal__close-line
+  h3.modal__title Получить консультацию
+  .modal__descr
+    p Заполните форму и наш менеджер <br>свяжется с вами в течение 5 минут
+
+  form.form-ajax
+    input(type="hidden", name="subject", value="Получить консультацию")
+    .form-group
+      label.form-label
+        span.form-label__title Имя
+        input(type="text", name="name", placeholder="Имя Фамилия", required).form-field
+    .form-group
+      label.form-label
+        span.form-label__title Номер телефона
+        input(type="tel", name="phone", placeholder="+7", required).form-field
+    .form-group.form-group--btn
+      button(type="submit").btn Заказать консультацию
+    .form-group.form-group--term
+      label.check
+        input(type="checkbox", name="terms", checked, required).check__input
+        span.check__box
+        | Принимаю условия <a href="#">пользовательского соглашения</a> и <a href="#">политики конфиденциальности</a>
+
+#services-modal.modal
+  button.services-modal_close.modal__close
+    | Close
+    span.modal__close-line
+  h3.modal__title Узнать стоимость
+  .modal__descr
+    p Заполните форму и наш менеджер <br>свяжется с вами в течение 5 минут
+
+  form.form-ajax
+    input(type="hidden", name="subject", value="Узнать стоимость: {service}")
+    .form-group
+      label.form-label
+        span.form-label__title Имя
+        input(type="text", name="name", placeholder="Имя Фамилия", required).form-field
+    .form-group
+      label.form-label
+        span.form-label__title Номер телефона
+        input(type="tel", name="phone", placeholder="+7", required).form-field
+    .form-group.form-group--btn
+      button(type="submit").btn Узнать стоимость
+    .form-group.form-group--term
+      label.check
+        input(type="checkbox", name="terms", checked, required).check__input
+        span.check__box
+        | Принимаю условия <a href="#">пользовательского соглашения</a> и <a href="#">политики конфиденциальности</a>
+
+#thanks.modal
+  button.thanks_close.modal__close
+    | Close
+    span.modal__close-line
+  h3 Спасибо за заказ
+  p Скоро мы Вам перезвоним!
