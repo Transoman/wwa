@@ -1,1 +1,84 @@
-// Form
+.form-row
+  display: flex
+  flex-wrap: wrap
+  +sm-block
+    display: block
+  & > *
+    width: calc(50% - 40px)
+    flex-grow: 1
+    +sm-block
+      width: 100%
+  & > *:not(:last-child)
+    margin-right: 40px
+    +sm-block
+      margin-right: 0
+.form-group
+  position: relative
+  margin-bottom: 40px
+  +sm-block
+    margin-bottom: 20px
+.form-label
+  display: block
+  margin: 0
+  font-size: 2rem
+  color: $cascade
+  +sm-block
+    font-size: 1.8rem
+  &__title
+    display: block
+    margin-bottom: 5px
+    padding-left: 20px
+.form-field
+  width: 100%
+  padding: 23px 20px
+  background-color: #fff
+  border: 1px solid $cascade
+  border-radius: 12px
+  font-size: 2rem
+  color: $main-color
+  +trans
+  +sm-block
+    padding: 15px 20px
+    font-size: 1.8rem
+  &::placeholder
+    color: inherit
+  &:focus
+    outline: none
+.form-file
+  display: flex
+  align-items: center
+  justify-content: center
+  max-width: 420px
+  margin: 0
+  padding: 80px 100px
+  background-color: #EAEDEE
+  border: 1px solid $cascade
+  border-radius: 12px
+  font-size: 2rem
+  color: #62747A
+  text-decoration: underline
+  cursor: pointer
+  overflow: hidden
+  white-space: nowrap
+  +sm-block
+    font-size: 1.8rem
+  +xs-block
+    padding: 60px 15px
+  &:hover
+    text-decoration: none
+  &__input
+    @extend .visually-hidden
+  &__icon
+    flex-shrink: 0
+    width: 40px
+    height: 40px
+    margin-right: 20px
+    +xs-block
+      width: 20px
+      height: 20px
+      margin-right: 10px
+  span
+    display: inline-block
+    vertical-align: middle
+    text-overflow: ellipsis
+    overflow: hidden

@@ -1,0 +1,27 @@
+.progress
+  display: flex
+  align-items: center
+  +xs-block
+    flex-direction: column
+  &__step
+    font-size: 2rem
+    font-weight: 600
+    color: #92A5AB
+    text-transform: uppercase
+  &__wrap
+    width: 300px
+    height: 10px
+    margin-left: 35px
+    background-color: #000
+    border-radius: 10px
+    overflow: hidden
+    +xs-block
+      margin-left: 0
+      margin-top: 10px
+      width: 100%
+  &__line
+    height: 100%
+    width: 0
+    background-color: $accent
+    border-radius: inherit
+    +trans

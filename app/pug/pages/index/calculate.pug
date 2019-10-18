@@ -1,0 +1,103 @@
+section.s-calculate
+  .container
+    h2.section-title Узнайте точную стоимость
+
+    form.steps-calculate
+
+      .steps-calculate__progress.progress
+        .progress__step
+          | Шаг
+          span.progress__step-current  0
+          |  /
+          span.progress__step-total  0
+
+        .progress__wrap
+          .progress__line
+
+      .steps-calculate__item
+        h3.steps-calculate__title Укажите интересующие вас услуги:
+
+        .steps-calculate-list
+          label.steps-calculate-list__item.check
+            input(type="checkbox", name="services[]", value="Айдентика").check__input
+            span.check__box
+            .steps-calculate-list__item-bg
+            +icon('step-1', 'steps-calculate-list__icon')
+            h4.steps-calculate-list__title Айдентика:
+            p Логотип или Фирменный Стиль
+          label.steps-calculate-list__item.check
+            input(type="checkbox", name="services[]", value="Веб-Разработка").check__input
+            span.check__box
+            .steps-calculate-list__item-bg
+            +icon('step-2', 'steps-calculate-list__icon')
+            h4.steps-calculate-list__title Веб-Разработка:
+            p Редизайн Сайта или Создание Сайта / Лендинга
+          label.steps-calculate-list__item.check
+            input(type="checkbox", name="services[]", value="Маркетинг").check__input
+            span.check__box
+            .steps-calculate-list__item-bg
+            +icon('step-3', 'steps-calculate-list__icon')
+            h4.steps-calculate-list__title Маркетинг:
+            p Поисковое продвижение и Контекстная Реклама и Таргетированная Реклама и Развитие сообществ в соц сетях
+
+      .steps-calculate__item
+        h3.steps-calculate__title Как быстро вы хотите начать работы?
+
+        .steps-calculate-list
+          label.steps-calculate-list__item.check
+            input(type="radio", name="time", value="Немедленно").check__input
+            span.check__box
+            .steps-calculate-list__item-bg
+            +icon('step-4', 'steps-calculate-list__icon')
+            h4.steps-calculate-list__title Немедленно
+          label.steps-calculate-list__item.check
+            input(type="radio", name="time", value="В течении недели").check__input
+            span.check__box
+            .steps-calculate-list__item-bg
+            +icon('step-5', 'steps-calculate-list__icon')
+            h4.steps-calculate-list__title В течении недели
+          label.steps-calculate-list__item.check
+            input(type="radio", name="time", value="В течении месяца").check__input
+            span.check__box
+            .steps-calculate-list__item-bg
+            +icon('step-6', 'steps-calculate-list__icon')
+            h4.steps-calculate-list__title В течении месяца
+
+      .steps-calculate__item.steps-calculate__item--form
+        .steps-calculate-form
+          .steps-calculate-form__left
+            .form-group
+              label.form-label
+                span.form-label__title Имя
+                input(type="text", name="name", placeholder="Имя Фамилия", required).form-field
+            .form-row
+              .form-group
+                label.form-label
+                  span.form-label__title Номер телефона
+                  input(type="tel", name="phone", placeholder="+7", required).form-field
+              .form-group
+                label.form-label
+                  span.form-label__title Электронная почта
+                  input(type="email", name="email", placeholder="Рабочий email", required).form-field
+            .form-group
+              label.form-label
+                span.form-label__title Сообщение
+                textarea(name="message", placeholder="Сроки запуска, бюджет, требования, ваше пожелания...").form-field
+
+          .steps-calculate-form__right
+            .form-group
+              label.form-file
+                input(type="file").form-file__input
+                +icon('paper-clip', 'form-file__icon')
+                span Добавить файл
+            .form-group.form-group--btn
+              button(type="submit").btn Начать проект
+
+        label.check
+          input(type="checkbox", checked, required).check__input
+          span.check__box
+          | Принимаю условия <a href="#">пользовательского соглашения</a> и <a href="#">политики конфиденциальности</a>
+
+      .steps-calculate__btns
+        button(type="button").btn.steps-calculate__btn.steps-calculate__btn--prev Назад
+        button(type="button").btn.steps-calculate__btn.steps-calculate__btn--next Далле

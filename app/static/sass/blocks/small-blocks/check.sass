@@ -1,0 +1,39 @@
+.check
+  position: relative
+  display: block
+  margin: 0
+  padding-left: 50px
+  color: $cascade
+  &__input
+    @extend .visually-hidden
+    &:checked ~ .check__box::before
+      opacity: 1
+  &__box
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
+    display: block
+    width: 30px
+    height: 30px
+    border: 1px solid #92A5AB
+    border-radius: 6px
+    background-color: #fff
+    cursor: pointer
+    &::before
+      content: ''
+      position: absolute
+      top: 2px
+      left: 9px
+      width: 10px
+      height: 18px
+      border-right: 2px solid #52DD21
+      border-bottom: 2px solid #52DD21
+      transform: rotate(45deg)
+      opacity: 0
+      +trans
+  a
+    text-decoration: underline
+    color: inherit
+    &:hover, &:focus
+      text-decoration: none

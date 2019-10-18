@@ -1,0 +1,170 @@
+.steps-calculate
+  position: relative
+  background-color: $lighten-gray
+  &__item
+    display: none
+    padding: 60px 160px 80px 80px
+    +xl-block
+      padding: 40px
+    +lg-block
+      padding-bottom: 0
+    +xs-block
+      padding: 40px 15px 0
+    &--form
+      padding: 120px 220px 80px 160px
+      +lg-block
+        padding-bottom: 40px
+      +xs-block
+        padding-bottom: 15px
+      .check
+        font-size: 1.6rem
+  &__title
+    margin-bottom: 100px
+    font-size: 3.6rem
+    +lg-block
+      text-align: center
+      margin-bottom: 40px
+    +sm-block
+      font-size: 3rem
+  &__progress
+    position: absolute
+    right: 100px
+    top: 80px
+    +xl-block
+      top: 50px
+      right: 40px
+    +lg-block
+      position: static
+      justify-content: center
+      padding: 40px 0 0
+    +xs-block
+      padding: 20px 15px 0
+  &__btns
+    display: flex
+    align-items: center
+    padding: 0 160px 40px 80px
+    +xl-block
+      padding: 0 40px 40px
+    +xs-block
+      padding: 0 15px 20px
+  &__btn
+    &--next
+      margin-left: auto
+
+.steps-calculate-list
+  display: flex
+  flex-wrap: wrap
+  &__item
+    position: relative
+    z-index: 1
+    display: block
+    width: calc((100% / 3) - 40px)
+    flex-grow: 1
+    min-height: 400px
+    margin-right: 40px
+    margin-bottom: 0
+    padding: 80px 20px 60px 80px
+    color: #000
+    cursor: pointer
+    +xl-block
+      padding: 40px 20px 40px 40px
+    +lg-block
+      width: 100%
+      min-height: 200px
+      margin-right: 0
+      margin-bottom: 40px
+    +xs-block
+      padding: 20px 15px
+      margin-bottom: 15px
+    &:nth-child(3n)
+      margin-right: 0
+    &-bg
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      pointer-events: none
+      +trans
+  &__icon
+    width: 80px
+    height: 80px
+    margin-bottom: 40px
+    +xs-block
+      width: 50px
+      height: 50px
+      margin-bottom: 10px
+  &__title
+    margin-bottom: 15px
+    font-size: 2.4rem
+    font-weight: 600
+    +xs-block
+      font-size: 2.2rem
+  .check
+    &__input
+      &:checked ~ .steps-calculate-list__item-bg
+        background-color: #fff
+    &__box
+      top: 100px
+      right: 100px
+      left: auto
+      width: 40px
+      height: 40px
+      border-width: 2px
+      border-color: #000
+      border-radius: 8px
+      transform: none
+      +xl-block
+        top: 60px
+        right: 40px
+      +xs-block
+        top: 20px
+        right: 20px
+      &::before
+        top: 5px
+        left: 13px
+        height: 21px
+        border-color: #000
+
+.steps-calculate-form
+  display: flex
+  margin-bottom: 30px
+  +lg-block
+    flex-direction: column
+  &__left
+    width: 55.38%
+    margin-right: 160px
+    +xl-block
+      margin-right: 100px
+    +lg-block
+      width: 100%
+      margin-right: 0
+  &__right
+    flex-grow: 1
+    padding-top: 80px
+    +lg-block
+      display: flex
+      align-items: center
+      padding-top: 0
+    +md-block
+      display: block
+    .form-group--btn
+      margin-top: 80px
+      +lg-block
+        margin-top: 0
+        margin-left: 40px
+      +md-block
+        text-align: center
+        margin-left: 0
+    .form-file
+      +md-block
+        max-width: none
+    .btn
+      padding: 26px 60px
+      font-size: 1.8rem
+      border-radius: 12px
+      +xs-block
+        padding-right: 40px
+        padding-left: 40px
+        width: 100%

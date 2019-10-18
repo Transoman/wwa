@@ -1,0 +1,107 @@
+.services-tabs
+  +row-flex
+  .section-head
+    margin-bottom: 40px
+  &__left
+    +col
+    width: calc(37.4% - 30px)
+    +lg-block
+      width: calc(100% - 30px)
+  &__right
+    +col
+    width: calc(62.6% - 30px)
+    padding-top: 120px
+    padding-right: 40px
+    +xl-block
+      padding-right: 0
+    +lg-block
+      width: calc(100% - 30px)
+      padding-top: 0
+  &__item
+    height: 100%
+  &__content
+    display: flex
+    flex-direction: column
+    height: 100%
+    padding: 80px 120px 80px 80px
+    background-color: $lighten-gray
+    +xl-block
+      padding: 60px
+    +md-block
+      padding: 30px
+    +sm-block
+      padding: 20px 15px
+    .btn
+      align-self: flex-end
+      margin-top: auto
+      +sm-block
+        align-self: center
+  &__descr
+    margin-bottom: 25px
+    p
+      font-size: 2rem
+      line-height: 1.8
+      +md-block
+        font-size: 1.8rem
+      &:last-child
+        margin-bottom: 0
+  &__price
+    margin: 0 0 50px
+    font-size: 2rem
+    font-weight: 600
+    color: #000
+    +md-block
+      font-size: 1.8rem
+    +sm-block
+      margin-bottom: 30px
+
+.services-tabs-list
+  margin: 0 0 0 80px
+  padding: 0
+  list-style: none
+  border-left: 1px solid #C9DADA
+  +xl-block
+    margin-left: 0
+    margin-bottom: 30px
+    border: 0
+  +lg-block
+    display: flex
+    overflow-x: auto
+  &__item
+    +lg-block
+      flex-shrink: 0
+      white-space: nowrap
+    &.active
+      .services-tabs-list
+        &__link
+          &::before
+            width: 100%
+  &__link
+    position: relative
+    z-index: 1
+    display: block
+    padding: 18px 40px
+    font-size: 2.4rem
+    font-weight: 600
+    color: $main-color
+    line-height: 1
+    +xl-block
+      font-size: 2.2rem
+    +lg-block
+      font-size: 1.8rem
+      padding-right: 20px
+      padding-left: 20px
+    &:hover
+      color: rgba($main-color, 0.8)
+    &:focus
+      color: $main-color
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      z-index: -1
+      width: 0
+      background-image: linear-gradient(90deg, #CFFF80 0%, rgba(207, 255, 128, 0) 100%)
+      +trans
