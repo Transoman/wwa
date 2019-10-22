@@ -2,7 +2,7 @@ section.s-calculate#calculate
   .container
     h2.section-title Узнайте точную стоимость
 
-    form(enctype="multipart/form-data").steps-calculate.form-ajax
+    form.steps-calculate
 
       .steps-calculate__progress.progress
         .progress__step
@@ -21,24 +21,24 @@ section.s-calculate#calculate
           label.steps-calculate-list__item.check
             input(type="checkbox", name="services[]", value="Айдентика").check__input
             span.check__box
-            .steps-calculate-list__item-bg
+            span.steps-calculate-list__item-bg
             +icon('step-1', 'steps-calculate-list__icon')
-            h4.steps-calculate-list__title Айдентика:
-            p Логотип или Фирменный Стиль
+            span.steps-calculate-list__title Айдентика:
+            span.steps-calculate-list__descr Логотип или Фирменный Стиль
           label.steps-calculate-list__item.check
             input(type="checkbox", name="services[]", value="Веб-Разработка").check__input
             span.check__box
-            .steps-calculate-list__item-bg
+            span.steps-calculate-list__item-bg
             +icon('step-2', 'steps-calculate-list__icon')
-            h4.steps-calculate-list__title Веб-Разработка:
-            p Редизайн Сайта или Создание Сайта / Лендинга
+            span.steps-calculate-list__title Веб-Разработка:
+            span.steps-calculate-list__descr Редизайн Сайта или Создание Сайта / Лендинга
           label.steps-calculate-list__item.check
             input(type="checkbox", name="services[]", value="Маркетинг").check__input
             span.check__box
-            .steps-calculate-list__item-bg
+            span.steps-calculate-list__item-bg
             +icon('step-3', 'steps-calculate-list__icon')
-            h4.steps-calculate-list__title Маркетинг:
-            p Поисковое продвижение и Контекстная Реклама и Таргетированная Реклама и Развитие сообществ в соц сетях
+            span.steps-calculate-list__title Маркетинг:
+            span.steps-calculate-list__descr Поисковое продвижение и Контекстная Реклама и Таргетированная Реклама и Развитие сообществ в соц сетях
 
       .steps-calculate__item
         h3.steps-calculate__title Как быстро вы хотите начать работы?
@@ -47,21 +47,21 @@ section.s-calculate#calculate
           label.steps-calculate-list__item.check
             input(type="radio", name="time", value="Немедленно").check__input
             span.check__box
-            .steps-calculate-list__item-bg
+            span.steps-calculate-list__item-bg
             +icon('step-4', 'steps-calculate-list__icon')
-            h4.steps-calculate-list__title Немедленно
+            span.steps-calculate-list__title Немедленно
           label.steps-calculate-list__item.check
             input(type="radio", name="time", value="В течении недели").check__input
             span.check__box
-            .steps-calculate-list__item-bg
+            span.steps-calculate-list__item-bg
             +icon('step-5', 'steps-calculate-list__icon')
-            h4.steps-calculate-list__title В течении недели
+            span.steps-calculate-list__title В течении недели
           label.steps-calculate-list__item.check
             input(type="radio", name="time", value="В течении месяца").check__input
             span.check__box
-            .steps-calculate-list__item-bg
+            span.steps-calculate-list__item-bg
             +icon('step-6', 'steps-calculate-list__icon')
-            h4.steps-calculate-list__title В течении месяца
+            span.steps-calculate-list__title В течении месяца
 
       .steps-calculate__item.steps-calculate__item--form
         .steps-calculate-form

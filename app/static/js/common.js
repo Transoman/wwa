@@ -357,7 +357,9 @@ jQuery(document).ready(function($) {
 
     $('.form-ajax').each(function(i, el) {
 
-      $(el).validate({
+      $(this).addClass('form-ajax-' + i);
+
+      $('.form-ajax-' + i).validate({
         rules: {
           phone: {
             phoneno: true
@@ -372,11 +374,9 @@ jQuery(document).ready(function($) {
           email: 'Это поле обязательно к заполнению.'
         },
         submitHandler: function(form) {
-          let data = new FormData($(form).get(0));
-          console.log(data);
-          return false;
+          let data = $('.form-ajax-' + i).serialize();
 
-          // ajaxSend(form, data);
+          ajaxSend(form, data);
         }
       });
 
@@ -386,6 +386,27 @@ jQuery(document).ready(function($) {
         toggleSubmit( $(el) );
       } );
 
+    });
+
+    $('.steps-calculate').validate({
+      rules: {
+        phone: {
+          phoneno: true
+        },
+        email: {
+          email: true
+        }
+      },
+      messages: {
+        name: 'Это поле обязательно к заполнению.',
+        phone: 'Это поле обязательно к заполнению.',
+        email: 'Это поле обязательно к заполнению.'
+      },
+      submitHandler: function(form) {
+        let data = new FormData($('.steps-calculate').get(0));
+
+        ajaxSend(form, data);
+      }
     });
 
     function toggleSubmit(form) {
@@ -404,6 +425,8 @@ jQuery(document).ready(function($) {
       jQuery.ajax({
         type: "POST",
         url: "sendmail.php",
+        contentType: false,
+        processData: false,
         data: data,
         success: function() {
           $(".modal").popup("hide");
