@@ -1,0 +1,60 @@
+.video
+  position: relative
+  width: 100%
+  height: 0
+  padding-bottom: 56.25%
+  background-color: #000
+  overflow: hidden
+  &__link
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+  &__media
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    border: none
+  &__button
+    position: absolute
+    top: 50%
+    left: 50%
+    z-index: 1
+    display: none
+    padding: 0
+    width: 80px
+    height: 80px
+    border-radius: 50%
+    border: 3px solid $accent
+    background: none
+    transform: translate(-50%, -50%)
+    cursor: pointer
+    +trans
+    &::before
+      content: ''
+      display: block
+      width: 0
+      height: 0
+      margin-left: 5px
+      border-style: solid
+      border-width: 20px 0 20px 20px
+      border-color: transparent transparent transparent $accent
+    &:hover
+      border-color: darken($accent, 15%)
+      &::before
+        border-color: transparent transparent transparent darken($accent, 15%)
+    &:focus
+      outline: none
+  // Enabled
+  &--enabled
+    cursor: pointer
+    .video__button
+      display: flex
+      align-items: center
+      justify-content: center
+
+img.video__media
+  object-fit: cover

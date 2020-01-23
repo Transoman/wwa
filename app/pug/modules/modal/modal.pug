@@ -1,28 +1,59 @@
-#consultation-modal.modal
+#consultation-modal.modal.consultation-modal
   button.consultation-modal_close.modal__close
     | Close
     span.modal__close-line
-  h3.modal__title Получить консультацию
+  h3.modal__title Закажите бесплатную 15-ти минутную консультацию у старшего специалиста
   .modal__descr
-    p Заполните форму и наш менеджер <br>свяжется с вами в течение 5 минут
+    p Здравствуйте, меня зовут Роман Власюк, я куратор-проектов и основатель компании WestWebArt. <br>
+      | Пожалуйста, заполните форму максимально честно и полно, чтобы мы могли подсказать лучшее решение.
 
-  form.form-ajax
+  .author-block
+    img(src="static/images/content/director.jpg").author-block__photo
+    span.author-block__text Роман Власюк <br>директор
+
+  form.form-consultation
     input(type="hidden", name="subject", value="Получить консультацию")
     .form-group
       label.form-label
-        span.form-label__title Имя
-        input(type="text", name="name", placeholder="Имя Фамилия", required).form-field
+        span.form-label__title Напишите своими словами, какую задачу необходимо решить
+        textarea(name="task", required).form-field
     .form-group
       label.form-label
-        span.form-label__title Номер телефона
-        input(type="tel", name="phone", placeholder="+7", required).form-field
+        span.form-label__title Как вас зовут?
+        input(type="text", name="name", required).form-field
+    .form-group
+      label.form-label
+        span.form-label__title Номер телефона с Мессенджерами (Viber / WhatsApp / Telegram / Skype)
+        input(type="text", name="phone", required).form-field
+    .form-group
+      label.form-label
+        span.form-label__title Email
+        input(type="email", name="email").form-field
     .form-group.form-group--btn
-      button(type="submit").btn Заказать консультацию
+      button(type="submit").btn Получить консультацию
     .form-group.form-group--term
       label.check
         input(type="checkbox", name="terms", checked, required).check__input
         span.check__box
-        | Принимаю условия <a href="#">пользовательского соглашения</a> и <a href="#">политики конфиденциальности</a>
+        | Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с <a href="policy-privacy.html" target="_blank">политикой конфиденциальности</a>
+
+
+  .modal__bottom
+    p Если же у вас возникли трудности с заполнением формы, пожалуйста, напишите в мессенджеры
+    ul.social
+      li.social__item
+        a(href="https://join.skype.com/invite/adoYBTk8iDkj", target="_blank").social__link
+          +icon('skype', 'social__icon')
+      li.social__item
+        a(href="tg://resolve?domain=vlasyukroma", target="_blank").social__link
+          +icon('telegram', 'social__icon')
+      li.social__item
+        a(href="viber://chat?number=%2B380969313320", target="_blank").social__link
+          +icon('viber', 'social__icon')
+      li.social__item
+        a(href="https://api.whatsapp.com/send?phone=380969313320", target="_blank").social__link
+          +icon('whatsapp', 'social__icon')
+    p или на почту <a href="mailto:westwebart.pro@gmail.com">westwebart.pro@gmail.com</a>
 
 #services-modal.modal
   button.services-modal_close.modal__close

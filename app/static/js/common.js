@@ -6,7 +6,8 @@ var svg4everybody = require('svg4everybody'),
   fancybox = require('@fancyapps/fancybox'),
   iMask = require('imask'),
   jQueryBridget = require('jquery-bridget'),
-  validate = require('jquery-validation');
+  validate = require('jquery-validation'),
+  lazyload = require('jquery-lazyload');
 
 jQuery(document).ready(function($) {
 
@@ -79,6 +80,8 @@ jQuery(document).ready(function($) {
   });
 
   new Swiper('.portfolio-example-slider', {
+    preloadImages: false,
+    lazy: true,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -158,16 +161,17 @@ jQuery(document).ready(function($) {
   // Chosen hover effect
   let chosenHover = function () {
     let item = $('.chosen-list__item');
-    let img = $('.chosen__img');
+    let imgContainer = $('.chosen__img');
+    let imgs = imgContainer.find('img');
 
-    item.hover(function () {
-      let color = $(this).data('color');
+    item.hover(function (e) {
+      let imgName = $(this).data('img');
 
-      img.attr("data-color", color).addClass('active');
+      imgContainer.find('img[src*='+ imgName +']').addClass('active');
     });
 
     item.mouseleave(function () {
-      img.removeClass('active');
+      imgs.removeClass('active');
     });
   };
 
@@ -244,6 +248,13 @@ jQuery(document).ready(function($) {
     // Otherwise, display the correct tab:
     showTab(currentTab);
   }
+
+  $('.steps-calculate-list__item--other .check__input').change(function() {
+    if ($(this).is(':checked')) {
+      let x = $('.steps-calculate__item');
+      nextPrev(x.length - 1);
+    }
+  });
 
   // Input file
   let inputFile = function() {
@@ -371,7 +382,8 @@ jQuery(document).ready(function($) {
         messages: {
           name: 'Это поле обязательно к заполнению.',
           phone: 'Это поле обязательно к заполнению.',
-          email: 'Это поле обязательно к заполнению.'
+          email: 'Это поле обязательно к заполнению.',
+          terms: 'Это поле обязательно к заполнению.'
         },
         submitHandler: function(form) {
           let data = $('.form-ajax-' + i).serialize();
@@ -388,6 +400,32 @@ jQuery(document).ready(function($) {
 
     });
 
+    $('.form-consultation').validate({
+      rules: {
+        email: {
+          email: true
+        }
+      },
+      messages: {
+        task: 'Это поле обязательно к заполнению.',
+        name: 'Это поле обязательно к заполнению.',
+        phone: 'Это поле обязательно к заполнению.',
+        email: 'Это поле обязательно к заполнению.',
+        terms: 'Это поле обязательно к заполнению.'
+      },
+      submitHandler: function(form) {
+        let data = $('.form-consultation').serialize();
+
+        ajaxSend(form, data);
+      }
+    });
+
+    toggleSubmit( $('.form-consultation') );
+
+    $('.form-consultation').on( 'click', '.check', function() {
+      toggleSubmit( $('.form-consultation') );
+    } );
+
     $('.steps-calculate').validate({
       rules: {
         phone: {
@@ -400,7 +438,8 @@ jQuery(document).ready(function($) {
       messages: {
         name: 'Это поле обязательно к заполнению.',
         phone: 'Это поле обязательно к заполнению.',
-        email: 'Это поле обязательно к заполнению.'
+        email: 'Это поле обязательно к заполнению.',
+        terms: 'Это поле обязательно к заполнению.'
       },
       submitHandler: function(form) {
         let data = new FormData($('.steps-calculate').get(0));
@@ -451,6 +490,91 @@ jQuery(document).ready(function($) {
     }).val();
   });
 
+  let autoRotateWorlds = function() {
+    let i = 0;
+    let itemClass = '.word-transition-fade .word-transition-fade__item',
+      itemClassVisible = 'word-transition-fade__item--visible',
+      itemClassPast = 'word-transition-fade__item--past';
+
+      setInterval(function() {
+
+        $(itemClass).removeClass(itemClassVisible).addClass(itemClassPast);
+        $(itemClass + ':eq(' + i + ')').removeClass(itemClassPast).addClass(itemClassVisible);
+        i += 1;
+        if (i == $(itemClass).length) {
+          i = 0;
+        }
+        $(itemClass + ':eq(' + i + ')').removeClass(itemClassPast);
+      }, 5000);
+  };
+
+  // Youtube Video Lazy Load
+  function findVideos() {
+    let videos = document.querySelectorAll('.video');
+
+    for (let i = 0; i < videos.length; i++) {
+      setupVideo(videos[i]);
+    }
+  }
+
+  function setupVideo(video) {
+    let link = video.querySelector('.video__link');
+    let button = video.querySelector('.video__button');
+    let id = parseMediaURL(link);
+
+    video.addEventListener('click', function() {
+      if (!this.classList.contains('video--dummy')) {
+        let iframe = createIframe(id);
+
+        link.remove();
+        button.remove();
+        video.appendChild(iframe);
+      }
+    });
+
+    let source = "https://img.youtube.com/vi/"+ id +"/maxresdefault.jpg";
+
+    if (!video.querySelector('.video__media')) {
+      let image = new Image();
+      image.src = source;
+      image.classList.add('video__media');
+
+      image.addEventListener('load', function() {
+        link.append( image );
+      } (video) );
+    }
+
+    link.removeAttribute('href');
+    video.classList.add('video--enabled');
+  }
+
+  function parseMediaURL(media) {
+    let regexp = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/;
+    let url = media.href;
+    let match = url.match(regexp);
+
+    return match[5];
+  }
+
+  function createIframe(id) {
+    let iframe = document.createElement('iframe');
+
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('allow', 'autoplay');
+    iframe.setAttribute('src', generateURL(id));
+    iframe.classList.add('video__media');
+
+    return iframe;
+  }
+
+  function generateURL(id) {
+    let query = '?rel=0&showinfo=0&autoplay=1';
+
+    return 'https://www.youtube.com/embed/' + id + query;
+  }
+
+  $("img.lazy").lazyload();
+
   tabs('.portfolio-tabs', '.portfolio-tabs-list', '.portfolio-tabs__item');
   tabs('.services-tabs', '.services-tabs-list', '.services-tabs__item');
   chosenHover();
@@ -459,6 +583,8 @@ jQuery(document).ready(function($) {
   fixedHeader($(this));
   inputMask();
   validateForm();
+  autoRotateWorlds();
+  findVideos();
 
   $(window).scroll(function() {
     fixedHeader($(this));

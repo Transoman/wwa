@@ -8,6 +8,7 @@
     $services = isset($_POST['services']) ? $_POST['services'] : '';
     $time = isset($_POST['time']) ? htmlspecialchars(trim($_POST['time'])) : '';
     $msg = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : '';
+    $task = isset($_POST['task']) ? htmlspecialchars(trim($_POST['task'])) : '';
     $subject = isset($_POST['subject']) ? htmlspecialchars(trim($_POST['subject'])) : '';
 
     $to = 'Elena357910@yandex.com';
@@ -20,26 +21,29 @@
     $headers .= "Reply-To: $email ? $email : $no_reply \r\n";
     $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
 
-    $data = '<h1>'.$subject."</h1>";
+    $data = '<h1>'.$subject.'</h1>';
     if ($name) {
-      $data .= 'Имя: '.$name."<br>";
+      $data .= 'Имя: '.$name.'<br>';
     }
     if ($email) {
-      $data .= 'Email: '.$email."<br>";
+      $data .= 'Email: '.$email.'<br>';
     }
     if ($phone) {
-      $data .= 'Телефон: '.$phone."<br>";
+      $data .= 'Телефон: '.$phone.'<br>';
+    }
+    if ($task) {
+      $data .= 'Задача: '.$task.'<br>';
     }
     if ($services) {
       foreach ($services as $item) {
-        $data .= 'Услуга: '.$item."<br>";
+        $data .= 'Услуга: '.$item.'<br>';
       }
     }
     if ($time) {
-      $data .= 'Время начата работы: '.$time."<br>";
+      $data .= 'Время начата работы: '.$time.'<br>';
     }
     if ($msg) {
-      $data .= 'Сообщение: <p>'.$msg."</p><br>";
+      $data .= 'Сообщение: <p>'.$msg.'</p><br>';
     }
 
     $message ="Content-Type: multipart/mixed; boundary=\"$boundary\"

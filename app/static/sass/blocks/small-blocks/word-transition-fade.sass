@@ -1,0 +1,26 @@
+.word-transition-fade
+  position: relative
+  z-index: 1
+  display: inline-block
+  padding: 0 10px
+  font-weight: 600
+  &__item
+    display: none
+    opacity: 0
+    top: 0
+    left: 0
+    transition: transform 0.4s ease, opacity 0.4s linear
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      width: 100%
+      background-color: $pink
+    &--visible
+      display: inline
+      opacity: 1
+      transform: translateY(0px)
+      animation: wordFade 0.4s

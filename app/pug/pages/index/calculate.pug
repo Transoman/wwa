@@ -39,6 +39,12 @@ section.s-calculate#calculate
             +icon('step-3', 'steps-calculate-list__icon')
             span.steps-calculate-list__title Маркетинг:
             span.steps-calculate-list__descr Поисковое продвижение и Контекстная Реклама и Таргетированная Реклама и Развитие сообществ в соц сетях
+          label.steps-calculate-list__item.steps-calculate-list__item--other.check
+            input(type="checkbox", name="services[]", value="Другое").check__input
+            span.check__box
+            span.steps-calculate-list__item-bg
+            +icon('question', 'steps-calculate-list__icon')
+            span.steps-calculate-list__title Другое:
 
       .steps-calculate__item
         h3.steps-calculate__title Как быстро вы хотите начать работы?
@@ -91,13 +97,13 @@ section.s-calculate#calculate
                 +icon('paper-clip', 'form-file__icon')
                 span Добавить файл
             .form-group.form-group--btn
-              button(type="submit").btn Начать проект
+              button(type="submit").btn Узнать стоимость
 
-        label.check
+        label.check.check-terms
           input(type="checkbox", name="terms", checked, required).check__input
           span.check__box
-          | Принимаю условия <a href="#">пользовательского соглашения</a> и <a href="#">политики конфиденциальности</a>
+          | Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь с <a href="policy-privacy.html" target="_blank">политикой конфиденциальности</a>
 
       .steps-calculate__btns
-        button(type="button").btn.steps-calculate__btn.steps-calculate__btn--prev Назад
-        button(type="button").btn.steps-calculate__btn.steps-calculate__btn--next Далле
+        button(type="button").btn.btn--gray.steps-calculate__btn.steps-calculate__btn--prev Назад
+        button(type="button").btn.steps-calculate__btn.steps-calculate__btn--next Далее

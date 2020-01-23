@@ -1,9 +1,16 @@
 section.chosen#chosen
   video(autoplay, muted, loop).chosen__video
-    source(src="static/images/content/depositphotos_246688052-stock-video-doctor-signs-documents-in-a.mp4")
+    source(src="static/images/content/depositphotos_150456710-stock-video-brunette-in-blue-dress-walks.mp4")
 
   .chosen__img
-    img(src="static/images/content/chosen-img.jpg", alt="")
+    img(data-original="static/images/content/medicinskie-centry.jpg", alt="Медицинские центры").lazy
+    img(data-original="static/images/content/stomatologicheskie-kliniki.jpg", alt="Стоматологические клиники").lazy
+    img(data-original="static/images/content/plasticheskie-hirurgi-i-kliniki.jpg", alt="Пластические хирурги и клиники").lazy
+    img(data-original="static/images/content/kosmetologicheskie-kliniki.jpg", alt="Косметологические клиники").lazy
+    img(data-original="static/images/content/ginekologii-i-reproduktologii.jpg", alt="Гинекологии и репродуктологии").lazy
+    img(data-original="static/images/content/diagnosticheskie-centry.jpg", alt="Диагностические центры").lazy
+    img(data-original="static/images/content/chastnye-vrachi.jpg", alt="Частные врачи").lazy
+    img(data-original="static/images/content/veterinarnye-kliniki.jpg", alt="Ветеринарные клиники").lazy
 
   .container
     .chosen__wrap
@@ -12,16 +19,11 @@ section.chosen#chosen
         h2.section-title Нас выбирают
 
         ul.chosen-list
-          li(data-color="blue").chosen-list__item Медицинские центры
-          li(data-color="teal").chosen-list__item Стоматологические клиники
-          li(data-color="yellow").chosen-list__item Пластические хирурги и клиники
-          li(data-color="pink").chosen-list__item Косметологические клиники
-          li(data-color="purple").chosen-list__item Гинекологии и репродуктологии
-          li(data-color="lime").chosen-list__item Диагностические центры
-          li(data-color="dark-blue").chosen-list__item Частные врачи
-          li(data-color="green").chosen-list__item Ветеринарные клиники
-
-        .chosen__btn
-          a(href="#").btn.btn--icon.consultation-modal_open
-            +icon('phone')
-            | Получить консультацию
+          li(data-color="blue", data-img="medicinskie-centry").chosen-list__item Медицинские центры
+          li(data-color="teal", data-img="stomatologicheskie-kliniki").chosen-list__item Стоматологические клиники
+          li(data-color="yellow", data-img="plasticheskie-hirurgi-i-kliniki").chosen-list__item Пластические хирурги и клиники
+          li(data-color="pink", data-img="kosmetologicheskie-kliniki").chosen-list__item Косметологические клиники
+          li(data-color="purple", data-img="ginekologii-i-reproduktologii").chosen-list__item Гинекологии и репродуктологии
+          li(data-color="lime", data-img="diagnosticheskie-centry").chosen-list__item Диагностические центры
+          li(data-color="dark-blue", data-img="chastnye-vrachi").chosen-list__item Частные врачи
+          li(data-color="green", data-img="veterinarnye-kliniki").chosen-list__item Ветеринарные клиники

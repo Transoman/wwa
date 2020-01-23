@@ -49,6 +49,15 @@ h1, h2, h3, h4, h5, h6
   color: #000
   line-height: 1.2
 
+h1
+  font-size: 5.6rem
+  +xl-block
+    font-size: 4.6rem
+  +lg-block
+    font-size: 3.6rem
+  +md-block
+    font-size: 3rem
+
 h2
   font-size: 4.8rem
   +xl-block
@@ -147,6 +156,10 @@ section
         width: 20px
         height: 20px
         margin-right: 15px
+  &--gray
+    background-color: lighten($cascade, 10%)
+    &::before
+      background-color: $cascade
 
 .wrapper
   display: flex

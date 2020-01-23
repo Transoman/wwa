@@ -43,6 +43,7 @@
     &:focus
       outline: none
   &__title
+    margin-bottom: 20px
     text-align: center
   &__descr
     text-align: center
@@ -58,7 +59,21 @@
   .check
     font-size: 1.4rem
   &__bottom
-    text-align: center
+    margin-top: 3rem
 
 .popup_visible .modal
   transform: scale(1)
+
+.consultation-modal
+  +from(993px)
+    max-width: 800px
+  .social
+    margin-bottom: 10px
+  .modal
+    &__title
+      text-align: left
+    &__descr
+      text-align: left
+  .author-block
+    margin-top: 30px
+    margin-bottom: 30px
