@@ -416,7 +416,7 @@ jQuery(document).ready(function($) {
       submitHandler: function(form) {
         let data = $('.form-consultation').serialize();
 
-        ajaxSend(form, data);
+        ajaxSend2(form, data);
       }
     });
 
@@ -476,6 +476,21 @@ jQuery(document).ready(function($) {
         }
       });
     }
+
+    function ajaxSend2(formName, data) {
+      jQuery.ajax({
+        type: "POST",
+        url: "sendmail.php",
+        data: data,
+        success: function() {
+          $(".modal").popup("hide");
+          $("#thanks").popup("show");
+          setTimeout(function() {
+            $(formName).trigger('reset');
+          }, 2000);
+        }
+      });
+    }
   };
 
   let inputSubject = $('#services-modal input[name="subject"]');
@@ -505,7 +520,7 @@ jQuery(document).ready(function($) {
           i = 0;
         }
         $(itemClass + ':eq(' + i + ')').removeClass(itemClassPast);
-      }, 5000);
+      }, 3000);
   };
 
   // Youtube Video Lazy Load

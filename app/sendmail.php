@@ -10,6 +10,7 @@
     $msg = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : '';
     $task = isset($_POST['task']) ? htmlspecialchars(trim($_POST['task'])) : '';
     $subject = isset($_POST['subject']) ? htmlspecialchars(trim($_POST['subject'])) : '';
+    $file = isset($_FILES['file']) ? $_FILES['file'] : '';
 
     $to = 'Elena357910@yandex.com';
     $no_reply = 'no-reply@silk-its.com';
@@ -51,13 +52,14 @@
       Content-Type: text/html; charset=\"utf-8\"\n\n
       $data\n\n";
 
-    if (is_uploaded_file($_FILES['file']['tmp_name'])) {
-      $attachment = chunk_split(base64_encode(file_get_contents($_FILES['file']['tmp_name'])));
-      $filename = $_FILES['file']['name'];
-      $filetype = $_FILES['file']['type'];
-      $filesize = $_FILES['file']['size'];
+    if ($file) {
+	    if (is_uploaded_file($file['tmp_name'])) {
+		    $attachment = chunk_split(base64_encode(file_get_contents($file['tmp_name'])));
+		    $filename = $file['name'];
+		    $filetype = $file['type'];
+		    $filesize = $file['size'];
 
-      $message .="
+		    $message .="
   
       --$boundary
       Content-Type: \"$filetype\"; name=\"$filename\"
@@ -65,6 +67,7 @@
       Content-Disposition: attachment; filename=\"$filename\"
   
       $attachment";
+	    }
     }
     $message.="
     --$boundary--";
