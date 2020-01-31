@@ -520,7 +520,7 @@ jQuery(document).ready(function($) {
           i = 0;
         }
         $(itemClass + ':eq(' + i + ')').removeClass(itemClassPast);
-      }, 3000);
+      }, 1500);
   };
 
   // Youtube Video Lazy Load
@@ -590,8 +590,31 @@ jQuery(document).ready(function($) {
 
   $("img.lazy").lazyload();
 
+  $('.faq-tabs-list a').click(function() {
+    if ($(window).width() < 1231) {
+      let offset = 0;
+
+      if ($(window).width() > 991) {
+        offset = 90;
+      }
+      else if ($(window).width() > 767) {
+        offset = 80;
+      }
+      else {
+        offset = 70;
+      }
+
+      setTimeout(function() {
+        $('html, body').animate({
+          scrollTop: $('.faq-tabs__item:visible').offset().top - offset
+        }, 1000);
+      }, 100);
+    }
+  });
+
   tabs('.portfolio-tabs', '.portfolio-tabs-list', '.portfolio-tabs__item');
   tabs('.services-tabs', '.services-tabs-list', '.services-tabs__item');
+  tabs('.faq-tabs', '.faq-tabs-list', '.faq-tabs__item');
   chosenHover();
   inputFile();
   accordion('.faq-list');

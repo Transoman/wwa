@@ -77,3 +77,40 @@
   .author-block
     margin-top: 30px
     margin-bottom: 30px
+
+.consultation-modal2
+  max-width: 1200px
+  +lg-block
+    max-width: 960px
+  +md-block
+    max-width: 720px
+  +sm-block
+    max-width: 540px
+  +xs-block
+    max-width: 90%
+  &__wrap
+    +row-flex
+  &__left
+    +col
+    +size(5)
+    +size-xl(6)
+    +size-md(12)
+  &__right
+    +col
+    +size(7)
+    +size-xl(6)
+    +size-md(12)
+  &__head
+    h3
+      margin-bottom: 2rem
+  &__bottom
+    +md-block
+      display: none
+  .author-block
+    margin: 3rem 0
+  .social
+    margin-bottom: 10px
+  .modal__bottom
+    display: none
+    +md-block
+      display: block

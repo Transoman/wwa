@@ -74,21 +74,20 @@ section.s-calculate#calculate
           .steps-calculate-form__left
             .form-group
               label.form-label
-                span.form-label__title Имя
-                input(type="text", name="name", placeholder="Имя Фамилия", required).form-field
-            .form-row
-              .form-group
-                label.form-label
-                  span.form-label__title Номер телефона
-                  input(type="tel", name="phone", placeholder="+7", required).form-field
-              .form-group
-                label.form-label
-                  span.form-label__title Электронная почта
-                  input(type="email", name="email", placeholder="Рабочий email", required).form-field
+                span.form-label__title Как вас зовут?
+                input(type="text", name="name", required).form-field
             .form-group
               label.form-label
-                span.form-label__title Сообщение
-                textarea(name="message", placeholder="Сроки запуска, бюджет, требования, ваше пожелания...").form-field
+                span.form-label__title Номер телефона с Мессенджерами (Viber / WhatsApp / Telegram / Skype)
+                input(type="text", name="phone", required).form-field
+            .form-group
+              label.form-label
+                span.form-label__title Email
+                input(type="email", name="email").form-field
+            .form-group
+              label.form-label
+                span.form-label__title Напишите своими словами, какую задачу необходимо решить
+                textarea(name="task").form-field
 
           .steps-calculate-form__right
             .form-group

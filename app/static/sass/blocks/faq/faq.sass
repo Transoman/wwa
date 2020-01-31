@@ -80,3 +80,96 @@
     p
       &:last-child
         margin-bottom: 0
+
+.faq-tabs
+  +row-flex
+  &__left
+    +col
+    +size(6)
+    +size-lg(12)
+    padding-right: 25px
+    +xl-block
+      padding: 0
+    +lg-block
+      margin-bottom: 30px
+  &__right
+    +col
+    +size(6)
+    +size-lg(12)
+    padding-left: 25px
+    +xl-block
+      padding: 0
+  &__item
+    height: 100%
+    padding: 40px 30px
+    background-color: $dark
+    border-radius: 16px
+    +sm-block
+      padding: 15px
+  &__content
+    max-height: 440px
+    padding-right: 30px
+    font-size: 2rem
+    +xl-block
+      max-height: 475px
+    +sm-block
+      max-height: 305px
+      font-size: 1.8rem
+    p
+      &:last-child
+        margin-bottom: 0
+
+.faq-tabs-list
+  margin: 0
+  padding: 0
+  list-style: none
+  li
+    margin-bottom: 10px
+    background-color: $dark
+    border-radius: 16px
+    &:last-child
+      margin-bottom: 0
+    &.active
+      .faq-tabs-list
+        &__toggle
+          background-color: $accent
+          svg
+            fill: $dark
+            transform: rotate(90deg)
+  a
+    position: relative
+    display: block
+    margin: 0
+    padding: 20px 80px 20px 40px
+    font-size: 2.4rem
+    font-weight: 700
+    color: #fff
+    +sm-block
+      padding: 15px 80px 15px 20px
+      font-size: 2rem
+  &__toggle
+    position: absolute
+    top: 50%
+    right: 30px
+    transform: translateY(-50%)
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 40px
+    height: 40px
+    border: 1px solid $accent
+    border-radius: 50%
+    +trans
+    +sm-block
+      width: 30px
+      height: 30px
+      right: 20px
+    svg
+      width: 16px
+      height: 9px
+      fill: $accent
+      transform: rotate(-90deg)
+      +trans
+      +sm-block
+        width: 12px
+        height: 7px

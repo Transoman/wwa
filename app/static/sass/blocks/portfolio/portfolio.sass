@@ -78,9 +78,19 @@
     +size-xl(6)
     +size-lg(12)
     padding-top: 45px
+    padding-bottom: 170px
+    font-size: 2.4rem
+    +xl-block
+      font-size: 2.2rem
+      padding-bottom: 80px
     +lg-block
       margin-bottom: 50px
       padding-top: 0
+      padding-bottom: 0
+    +sm-block
+      font-size: 2rem
+    b, strong
+      font-weight: 600
   &__right
     +col
     +size(7)
@@ -99,29 +109,17 @@
       font-size: 2.4rem
       text-align: center
   &__target
-    margin-bottom: 15px
-    font-size: 2.4rem
-    +xl-block
-      font-size: 2.2rem
-    +sm-block
-      font-size: 2rem
     a
       font-weight: 600
       color: #000
       text-decoration: underline
       &:hover, &:focus
         text-decoration: none
-    b, strong
-      font-weight: 600
   &__descr
-    margin-top: 30px
-    margin-bottom: 80px
-    +lg-block
-      margin-bottom: 0
+    margin-top: 15px
     p
+      margin-bottom: 0
       line-height: 1.5
-      b, strong
-        font-weight: 600
   &__slider-controls
     position: absolute
     left: 0
